@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioSphere - Biblioteca Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #2F4F4F;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3C5349;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background-color: #4A6960;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #D9E5D6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .genre-section {
+            margin-bottom: 3rem;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .genre-section h2 {
+            color: #3C5349;
+            border-bottom: 2px solid #4A6960;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .book-item {
+            background-color: #F0F5F2;
+            padding: 1rem;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: #3C5349;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BiblioSphere</h1>
+        <p>Sua biblioteca online de conhecimento</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="romance.html">Romance</a></li>
+            <li><a href="misterio.html">Mistério</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="genre-section" id="romance">
+            <h2>Romance</h2>
+            <div class="book-list">
+                <div class="book-item"><h3>Jane Austen</h3></p></div>
+                <div class="book-item"><h3>Jojo Moyes</h3></div>
+                <div class="book-item"><h3>Emily Brontë</h3></p></div>
+                <div class="book-item"><h3>John Green</h3></p></div>
+                <div class="book-item"><h3>Liev Tolstói</h3></p></div>
+                <div class="book-item"><h3>Jenna Evans Welch</h3></p></div>
+                <div class="book-item"><h3>Colleen Hoover</h3></p></div>
+                <div class="book-item"><h3>Sarah Dessen</h3></p></div>
+            
+            </div>
+        </section>
+
+        <section class="genre-section" id="misterio">
+            <h2>Mistério</h2>
+            <div class="book-list">
+                <div class="book-item"><h3> Agatha Christie</h3></p></div>
+                <div class="book-item"><h3>Dan Brown</h3></p></div>
+                <div class="book-item"><h3>Gillian Flynn</h3></p></div>
+                <div class="book-item"><h3>Thomas Harrise</h3></p></div>
+                <div class="book-item"><h3>Paula Hawkins </h3></p></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 BiblioSphere - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
+</body>
+</html>

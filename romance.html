@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros de Romance</title>
+    <style>
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .filter {
+            margin-bottom: 20px;
+        }
+        .filter input {
+            padding: 8px;
+            width: 300px;
+            font-size: 14px;
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .book {
+            text-align: center;
+            width: 200px;
+            display: none; /* Escondido por padrão, mostrado pelo JS */
+        }
+        .book.show {
+            display: block; /* Mostrado quando filtrado */
+        }
+        .book img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+        }
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .book-description {
+            font-size: 12px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .back-button {
+            display: inline-block;
+            width: 150px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="biblioteca.html" class="back-button">Voltar à Biblioteca</a>
+        <div class="filter">
+            <input type="text" id="authorFilter" placeholder="Digite o nome do autor para filtrar">
+        </div>
+        <div class="book-container">
+            <!-- Jane Austen -->
+            <div class="book" data-author="Jane Austen">
+                <img src="imagensromance/orgulho e preconceito.jpg" alt="Capa de Orgulho e Preconceito">
+                <div class="book-title">Orgulho e Preconceito - Jane Austen</div>
+                <div class="book-description">Elizabeth Bennet enfrenta preconceitos e descobre o amor com o reservado Sr. Darcy.</div>
+            </div>
+            <div class="book" data-author="Jane Austen">
+                <img src="imagensromance/Persuasão - Jane Austen.jpg" alt="Capa de Persuasão">
+                <div class="book-title">Persuasão - Jane Austen</div>
+                <div class="book-description">Anne Elliot tem uma segunda chance no amor com o Capitão Wentworth.</div>
+            </div>
+            <!-- Jojo Moyes -->
+            <div class="book" data-author="Jojo Moyes">
+                <img src="imagensromance/como eu era antes de voce.jpg" alt="Capa de Como Eu Era Antes de Você">
+                <div class="book-title">Como Eu Era Antes de Você - Jojo Moyes</div>
+                <div class="book-description">Lou cuida de Will, um homem tetraplégico, e os dois transformam a vida um do outro.</div>
+            </div>
+            <div class="book" data-author="Jojo Moyes">
+                <img src="imagensromance/depois de vc.jpg" alt="Capa de Depois de Você">
+                <div class="book-title">Depois de Você - Jojo Moyes</div>
+                <div class="book-description">Lou tenta reconstruir sua vida após a perda de Will.</div>
+            </div>
+            <!-- Emily Brontë -->
+            <div class="book" data-author="Emily Brontë">
+                <img src="imagensromance/o morro dos ventos.webp" alt="Capa de O Morro dos Ventos Uivantes">
+                <div class="book-title">O Morro dos Ventos Uivantes - Emily Brontë</div>
+                <div class="book-description">A paixão destrutiva entre Heathcliff e Catherine em um cenário sombrio.</div>
+            </div>
+            <div class="book" data-author="Emily Brontë">
+                <img src="imagensromance/Poemas de Emily Brontë - Emily Brontë.jpg" alt="Capa de Poemas de Emily Brontë">
+                <div class="book-title">Poemas de Emily Brontë - Emily Brontë</div>
+                <div class="book-description">Versos intensos que refletem o amor e a melancolia da autora.</div>
+            </div>
+            <!-- John Green -->
+            <div class="book" data-author="John Green">
+                <img src="imagensromance/a culpa e das estrelas.jpg" alt="Capa de A Culpa é das Estrelas">
+                <div class="book-title">A Culpa é das Estrelas - John Green</div>
+                <div class="book-description">Hazel e Gus, dois jovens com câncer, vivem um amor intenso e comovente.</div>
+            </div>
+            <div class="book" data-author="John Green">
+                <img src="imagensromance/Cidades de Papel - John Green.jpg" alt="Capa de Cidades de Papel">
+                <div class="book-title">Cidades de Papel - John Green</div>
+                <div class="book-description">Quentin parte em busca de Margo, sua paixão misteriosa.</div>
+            </div>
+            <!-- Liev Tolstói -->
+            <div class="book" data-author="Liev Tolstói">
+                <img src="imagensromance/Anna Karenina - Liev Tolstói.jpg" alt="Capa de Anna Karenina">
+                <div class="book-title">Anna Karenina - Liev Tolstói</div>
+                <div class="book-description">Anna desafia convenções sociais por um amor proibido na Rússia czarista.</div>
+            </div>
+            <div class="book" data-author="Liev Tolstói">
+                <img src="imagensromance/a arte.jpg" alt="Capa de A Morte de Ivan Iliitch">
+                <div class="book-title">A Morte de Ivan Iliitch - Liev Tolstói</div>
+                <div class="book-description">Um juiz reflete sobre amor e vida ao enfrentar a morte.</div>
+            </div>
+            <!-- Nicholas Sparks -->
+            <div class="book" data-author="Nicholas Sparks">
+                <img src="imagensromance/um_amor_para_recordar.jpg" alt="Capa de Um Amor para Recordar">
+                <div class="book-title">Um Amor para Recordar - Nicholas Sparks</div>
+                <div class="book-description">Landon e Jamie encontram amor e redenção em uma história emocionante.</div>
+            </div>
+            <div class="book" data-author="Nicholas Sparks">
+                <img src="imagensromance/o_diario_de_uma_paixao.jpg" alt="Capa de O Diário de uma Paixão">
+                <div class="book-title">O Diário de uma Paixão - Nicholas Sparks</div>
+                <div class="book-description">Noah e Allie vivem um amor eterno, relembrado em um diário comovente.</div>
+            </div>
+            <!-- Charlotte Brontë -->
+            <div class="book" data-author="Charlotte Brontë">
+                <img src="imagensromance/jane_eyre.jpg" alt="Capa de Jane Eyre">
+                <div class="book-title">Jane Eyre - Charlotte Brontë</div>
+                <div class="book-description">Jane, uma órfã resiliente, encontra amor e independência com Rochester.</div>
+            </div>
+            <div class="book" data-author="Charlotte Brontë">
+                <img src="imagensromance/shirley.jpg" alt="Capa de Shirley">
+                <div class="book-title">Shirley - Charlotte Brontë</div>
+                <div class="book-description">Duas mulheres navegam amor e sociedade na Inglaterra industrial.</div>
+            </div>
+            <!-- Jenna Evans Welch -->
+            <div class="book" data-author="Jenna Evans Welch">
+                <img src="imagensromance/Amor & Gelato - Jenna Evans Welch.jpg" alt="Capa de Amor & Gelato">
+                <div class="book-title">Amor & Gelato - Jenna Evans Welch</div>
+                <div class="book-description">Lina explora a Itália, amor e segredos de família após a morte da mãe.</div>
+            </div>
+            <div class="book" data-author="Jenna Evans Welch">
+                <img src="imagensromance/Amor & Sorte - Jenna Evans Welch.jpg" alt="Capa de Amor & Sorte">
+                <div class="book-title">Amor & Sorte - Jenna Evans Welch</div>
+                <div class="book-description">Addie encontra amor e aventura em uma viagem pela Irlanda.</div>
+            </div>
+            <!-- Colleen Hoover -->
+            <div class="book" data-author="Colleen Hoover">
+                <img src="imagensromance/verity.jpg" alt="Capa de Verity">
+                <div class="book-title">Verity - Colleen Hoover</div>
+                <div class="book-description">Lowen descobre segredos sombrios ao terminar o livro de uma autora.</div>
+            </div>
+            <div class="book" data-author="Colleen Hoover">
+                <img src="imagensromance/180_lv_e_assim_que_acaba_capa_dura_ed_colecionador_1819_1_e9b28ec32791cc5e9287d142b8065393.webp" alt="Capa de É Assim que Acaba">
+                <div class="book-title">É Assim que Acaba - Colleen Hoover</div>
+                <div class="book-description">Lily enfrenta escolhas difíceis em um amor complicado.</div>
+            </div>
+            <!-- Sarah Dessen -->
+            <div class="book" data-author="Sarah Dessen">
+                <img src="imagensromance/Apenas Ouça - Sarah Dessen.jpg" alt="Capa de Apenas Ouça">
+                <div class="book-title">Apenas Ouça - Sarah Dessen</div>
+                <div class="book-description">Annabel encontra amor e cura através da música.</div>
+            </div>
+            <div class="book" data-author="Sarah Dessen">
+                <img src="imagensromance/" alt="Capa de Uma Canção de Ninar">
+                <div class="book-title">Uma Canção de Ninar - Sarah Dessen</div>
+                <div class="book-description">Remy aprende a confiar no amor apesar de seu cinismo.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const filterInput = document.getElementById('authorFilter');
+        const books = document.querySelectorAll('.book');
+
+        // Mostrar todos os livros inicialmente
+        books.forEach(book => book.classList.add('show'));
+
+        filterInput.addEventListener('input', function() {
+            const filterValue = this.value.toLowerCase();
+
+            books.forEach(book => {
+                const author = book.getAttribute('data-author').toLowerCase();
+                if (author.includes(filterValue)) {
+                    book.classList.add('show');
+                } else {
+                    book.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

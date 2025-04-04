@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros de Mistério</title>
+    <style>
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .filter {
+            margin-bottom: 20px;
+        }
+        .filter input {
+            padding: 8px;
+            width: 300px;
+            font-size: 14px;
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .book {
+            text-align: center;
+            width: 200px;
+            display: none; /* Escondido por padrão, mostrado pelo JS */
+        }
+        .book.show {
+            display: block; /* Mostrado quando filtrado */
+        }
+        .book img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+        }
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .book-description {
+            font-size: 12px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .back-button {
+            display: inline-block;
+            width: 150px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="biblioteca.html" class="back-button">Voltar à Biblioteca</a>
+        <div class="filter">
+            <input type="text" id="authorFilter" placeholder="Digite o nome do autor para filtrar">
+        </div>
+        <div class="book-container">
+            <!-- Agatha Christie -->
+            <div class="book" data-author="Agatha Christie">
+                <img src="imagensmisterio/E Não Sobrou Nenhum - Agatha Christie.jpg" alt="Capa de E Não Sobrou Nenhum">
+                <div class="book-title">E Não Sobrou Nenhum - Agatha Christie</div>
+                <div class="book-description">Dez pessoas em uma ilha isolada morrem seguindo uma rima infantil.</div>
+            </div>
+            <div class="book" data-author="Agatha Christie">
+                <img src="imagensmisterio/Assassinato no Expresso do Oriente - Agatha Christie.jpg" alt="Capa de Assassinato no Expresso do Oriente">
+                <div class="book-title">Assassinato no Expresso do Oriente - Agatha Christie</div>
+                <div class="book-description">Hercule Poirot resolve um assassinato em um trem preso na neve.</div>
+            </div>
+            <!-- Dan Brown -->
+            <div class="book" data-author="Dan Brown">
+                <img src="imagensmisterio/O Código Da Vinci - Dan Brown.jpg" alt="Capa de O Código Da Vinci">
+                <div class="book-title">O Código Da Vinci - Dan Brown</div>
+                <div class="book-description">Robert Langdon desvenda símbolos após um assassinato no Louvre.</div>
+            </div>
+            <div class="book" data-author="Dan Brown">
+                <img src="imagensmisterio/Anjos e Demônios - Dan Brown.jpg" alt="Capa de Anjos e Demônios">
+                <div class="book-title">Anjos e Demônios - Dan Brown</div>
+                <div class="book-description">Langdon enfrenta uma conspiração antiga em Roma.</div>
+            </div>
+            <!-- Gillian Flynn -->
+            <div class="book" data-author="Gillian Flynn">
+                <img src="imagensmisterio/Garota Exemplar - Gillian Flynn.jpg" alt="Capa de Garota Exemplar">
+                <div class="book-title">Garota Exemplar - Gillian Flynn</div>
+                <div class="book-description">O desaparecimento de Amy revela segredos sombrios de seu casamento.</div>
+            </div>
+            <div class="book" data-author="Gillian Flynn">
+                <img src="imagensmisterio/Objetos Cortantes - Gillian Flynn.jpg" alt="Capa de Objetos Cortantes">
+                <div class="book-title">Objetos Cortantes - Gillian Flynn</div>
+                <div class="book-description">Uma jornalista investiga assassinatos em sua cidade natal.</div>
+            </div>
+            <!-- Thomas Harris -->
+            <div class="book" data-author="Thomas Harris">
+                <img src="imagensmisterio/O Silêncio dos Inocentes - Thomas Harris.jpg" alt="Capa de O Silêncio dos Inocentes">
+                <div class="book-title">O Silêncio dos Inocentes - Thomas Harris</div>
+                <div class="book-description">Clarice caça um serial killer com a ajuda de Hannibal Lecter.</div>
+            </div>
+            <div class="book" data-author="Thomas Harris">
+                <img src="imagensmisterio/Dragão Vermelho - Thomas Harris.jpg" alt="Capa de Dragão Vermelho">
+                <div class="book-title">Dragão Vermelho - Thomas Harris</div>
+                <div class="book-description">Will Graham persegue um assassino com a ajuda de Lecter.</div>
+            </div>
+            <!-- Paula Hawkins -->
+            <div class="book" data-author="Paula Hawkins">
+                <img src="imagensmisterio/A Garota no Trem - Paula Hawkins.jpg" alt="Capa de A Garota no Trem">
+                <div class="book-title">A Garota no Trem - Paula Hawkins</div>
+                <div class="book-description">Rachel se envolve em um desaparecimento que observa do trem.</div>
+            </div>
+            <div class="book" data-author="Paula Hawkins">
+                <img src="imagensmisterio/Em Águas Sombrias - Paula Hawkins.jpg" alt="Capa de Em Águas Sombrias">
+                <div class="book-title">Em Águas Sombrias - Paula Hawkins</div>
+                <div class="book-description">Duas irmãs enfrentam segredos de um rio mortal.</div>
+            </div>
+        
+      </div>
+    <script>
+        const filterInput = document.getElementById('authorFilter');
+        const books = document.querySelectorAll('.book');
+
+        // Mostrar todos os livros inicialmente
+        books.forEach(book => book.classList.add('show'));
+
+        filterInput.addEventListener('input', function() {
+            const filterValue = this.value.toLowerCase();
+
+            books.forEach(book => {
+                const author = book.getAttribute('data-author').toLowerCase();
+                if (author.includes(filterValue)) {
+                    book.classList.add('show');
+                } else {
+                    book.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
